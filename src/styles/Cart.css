@@ -1,0 +1,43 @@
+.jh-cart {
+  padding: 32px;
+  background-color: #31b572;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 300px;
+}
+
+.jh-cart-icon {
+  height: 15px;
+  width: 15px;
+}
+
+.jh-cart-button {
+  display: inline-flex;
+}
+
+.jh-cart-add-button {
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+.jh-cart-toggle-button {
+  background: none;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: self-start;
+  padding: 0;
+  color: white;
+}
+
+.jh-cart-closed {
+  padding: 32px;
+  width: 200px;
+}
+
+.jh-cart-closed > button {
+  color: black;
+}
