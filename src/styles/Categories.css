@@ -5,4 +5,20 @@
 
 .jh-categories-select {
   margin-right: 15px;
+  text-transform: capitalize;
+}
+
+.jh-categories-button {
+  background-color: rgb(207, 154, 22);
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px;
+  color: rgb(250, 244, 244);
+  border-radius: 4px;
+}
+
+.jh-categories-button:hover {
+  background-color: rgb(244, 224, 198);
+  color: rgb(11, 11, 254);
 }

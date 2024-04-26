@@ -16,7 +16,12 @@ function Categories({ categories, activeCategory, setActiveCategory }) {
           </option>
         ))}
       </select>
-      <button onClick={() => setActiveCategory("")}>Réinitialiser</button>
+      <button
+        className="jh-categories-button"
+        onClick={() => setActiveCategory("")}
+      >
+        Réinitialiser
+      </button>
     </div>
   );
 }
