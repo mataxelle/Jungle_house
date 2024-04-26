@@ -1,7 +1,7 @@
 .jh-cart {
   padding: 32px;
-  background-color: #31b572;
-  color: white;
+  background-color: rgb(49, 181, 114);
+  color: rgb(250, 244, 244);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -13,6 +13,10 @@
   width: 15px;
 }
 
+.jh-cart-item {
+  text-transform: capitalize;
+}
+
 .jh-cart-button {
   display: inline-flex;
 }
@@ -22,15 +26,33 @@
   cursor: pointer;
 }
 
-.jh-cart-toggle-button {
+.jh-cart-toggle-button-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jh-cart-toggle-close-button {
+  width: 20%;
+  align-self: flex-end;
   background: none;
-  outline: none;
   border: none;
+  cursor: pointer;
+}
+
+.jh-cart-toggle-button {
+  background-color: rgb(207, 154, 22);
+  outline: none;
   font-weight: 600;
   cursor: pointer;
-  align-self: self-start;
-  padding: 0;
-  color: white;
+  align-self: self-end;
+  padding: 12px 8px;
+  color: rgb(250, 244, 244);
+  border-radius: 4px;
+}
+
+.jh-cart-toggle-button:hover {
+  background-color: rgb(244, 224, 198);
+  color: rgb(11, 11, 254);
 }
 
 .jh-cart-closed {
@@ -40,4 +62,9 @@
 
 .jh-cart-closed > button {
   color: black;
+  border: none;
+}
+
+.jh-cart-total {
+  margin: 30px 0;
 }
