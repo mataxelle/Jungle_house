@@ -5,6 +5,10 @@ import closeIcon from "../assets/closeIcon.png";
 function Cart({ cart, updateCart }) {
   const [isOpen, setIsOpen] = useState(true);
 
+  function deleteItem(name, price) {
+    //delete
+  }
+
   const total = cart.reduce(
     (acc, plantType) => acc + plantType.amount * plantType.price,
     0
@@ -22,15 +26,29 @@ function Cart({ cart, updateCart }) {
 
       {cart.length > 0 ? (
         <div>
-          <ul>
+          <table>
+            <tr>
+              <th>Produit</th>
+              <th>Qté</th>
+              <th>Prix</th>
+              <th></th>
+            </tr>
             {cart.map(({ name, price, amount }, index) => (
-              <div key={`${name}-${index}`}>
-                <li className="jh-cart-item">
-                  {name} - {price}€ x {amount}
-                </li>
-              </div>
+              <tr key={`${name}-${index}`}>
+                <td className="jh-cart-item">{name}</td>
+                <td>{amount}</td>
+                <td>{price}</td>
+                <td>
+                  <button
+                    className="jh-cart-item-btn"
+                    onClick={() => deleteItem()}
+                  >
+                    x
+                  </button>
+                </td>
+              </tr>
             ))}
-          </ul>
+          </table>
           <h2 className="jh-cart-total">Total : {total}€</h2>
           <div className="jh-cart-toggle-button-action">
             <button

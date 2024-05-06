@@ -17,12 +17,8 @@
   text-transform: capitalize;
 }
 
-.jh-cart-button {
-  display: inline-flex;
-}
-
-.jh-cart-add-button {
-  margin-left: 32px;
+.jh-cart-item-btn {
+  background-color: rgb(207, 25, 22);
   cursor: pointer;
 }
 
@@ -50,7 +46,8 @@
   border-radius: 4px;
 }
 
-.jh-cart-toggle-button:hover {
+.jh-cart-toggle-button:hover,
+.jh-cart-item-btn:hover {
   background-color: rgb(244, 224, 198);
   color: rgb(11, 11, 254);
 }
