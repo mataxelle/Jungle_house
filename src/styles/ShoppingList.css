@@ -14,4 +14,10 @@
   background-color: rgb(49, 181, 114);
   border-radius: 5px;
   color: rgb(250, 244, 244);
+  cursor: pointer;
+}
+
+.jh-plant-btn:hover {
+  background-color: rgb(244, 224, 198);
+  color: rgb(11, 11, 254);
 }
