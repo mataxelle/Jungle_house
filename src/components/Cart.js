@@ -5,6 +5,30 @@ import closeIcon from "../assets/closeIcon.png";
 function Cart({ cart, updateCart }) {
   const [isOpen, setIsOpen] = useState(true);
 
+  function addQt(name, price) {
+    const currentPlantSaved = cart.find((plant) => plant.name === name);
+
+    const plantInCart = cart.filter((plant) => plant.name !== name);
+    updateCart([
+      ...plantInCart,
+      { name, price, amount: currentPlantSaved.amount + 1 },
+    ]);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function minusQt(name, price) {
+    const currentPlantSaved = cart.find((plant) => plant.name === name);
+
+    const plantInCart = cart.filter((plant) => plant.name !== name);
+    updateCart([
+      ...plantInCart,
+      { name, price, amount: currentPlantSaved.amount - 1 },
+    ]);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   function deleteItem(name, price) {
     //delete
   }
@@ -36,7 +60,22 @@ function Cart({ cart, updateCart }) {
             {cart.map(({ name, price, amount }, index) => (
               <tr key={`${name}-${index}`}>
                 <td className="jh-cart-item">{name}</td>
-                <td>{amount}</td>
+                <td>
+                  <button id="minus" onClick={() => minusQt(name, price)}>
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    value={amount}
+                    min="1"
+                    max="100"
+                  />
+                  <button id="plus" onClick={() => addQt(name, price)}>
+                    +
+                  </button>
+                </td>
                 <td>{price}</td>
                 <td>
                   <button
