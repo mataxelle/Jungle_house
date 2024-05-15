@@ -1,10 +1,6 @@
 import CareScale from "./CaraScale";
 import "../styles/PlantItem.css";
 
-function handleClick(plantName) {
-  alert(`Vous avez choisie 1 ${plantName}? C'est un bon choix 🌱✨`);
-}
-
 function PlantItem({
   id,
   name,
@@ -17,7 +13,7 @@ function PlantItem({
 }) {
   return (
     <div>
-      <li key={id} className="jh-plant-item" onClick={() => handleClick(name)}>
+      <li key={id} className="jh-plant-item">
         <img
           className="jh-plant-item-cover"
           src={cover}
