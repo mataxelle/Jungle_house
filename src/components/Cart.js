@@ -5,26 +5,24 @@ import closeIcon from "../assets/closeIcon.png";
 function Cart({ cart, updateCart }) {
   const [isOpen, setIsOpen] = useState(true);
 
-  function addQt(name, price) {
+  function itemQty(name, price, action) {
     const currentPlantSaved = cart.find((plant) => plant.name === name);
-
     const plantInCart = cart.filter((plant) => plant.name !== name);
-    updateCart([
-      ...plantInCart,
-      { name, price, amount: currentPlantSaved.amount + 1 },
-    ]);
+    if (action === "plus") {
+      updateCart([
+        ...plantInCart,
+        { name, price, amount: currentPlantSaved.amount + 1 },
+      ]);
+    }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-
-  function minusQt(name, price) {
-    const currentPlantSaved = cart.find((plant) => plant.name === name);
-
-    const plantInCart = cart.filter((plant) => plant.name !== name);
-    updateCart([
-      ...plantInCart,
-      { name, price, amount: currentPlantSaved.amount - 1 },
-    ]);
+    if (action === "minus") {
+      if (currentPlantSaved.amount > 1) {
+        updateCart([
+          ...plantInCart,
+          { name, price, amount: currentPlantSaved.amount - 1 },
+        ]);
+      }
+    }
 
     localStorage.setItem("cart", JSON.stringify(cart));
   }
@@ -61,7 +59,10 @@ function Cart({ cart, updateCart }) {
               <tr key={`${name}-${index}`}>
                 <td className="jh-cart-item">{name}</td>
                 <td>
-                  <button id="minus" onClick={() => minusQt(name, price)}>
+                  <button
+                    id="minus"
+                    onClick={() => itemQty(name, price, "minus")}
+                  >
                     -
                   </button>
                   <input
@@ -70,9 +71,12 @@ function Cart({ cart, updateCart }) {
                     name="amount"
                     value={amount}
                     min="1"
-                    max="100"
+                    max="10"
                   />
-                  <button id="plus" onClick={() => addQt(name, price)}>
+                  <button
+                    id="plus"
+                    onClick={() => itemQty(name, price, "plus")}
+                  >
                     +
                   </button>
                 </td>
