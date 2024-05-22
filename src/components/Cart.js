@@ -27,8 +27,10 @@ function Cart({ cart, updateCart }) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  function deleteItem(name, price) {
-    //delete
+  function deleteItem(i) {
+    localStorage.removeItem(i);
+    cart.splice(i, 1);
+    updateCart([...cart]);
   }
 
   const total = cart.reduce(
@@ -84,7 +86,7 @@ function Cart({ cart, updateCart }) {
                 <td>
                   <button
                     className="jh-cart-item-btn"
-                    onClick={() => deleteItem()}
+                    onClick={() => deleteItem(index)}
                   >
                     x
                   </button>
